@@ -1,1 +1,1 @@
-# hightlighter
+# highlighter
