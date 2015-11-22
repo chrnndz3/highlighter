@@ -1,3 +1,10 @@
+$('#main').keyup(function(e){
+    console.log(e);
+    $('#autocomplete').val($(this).val() + 'asdf')
+});
+
+
+/*---------------------------------------------------------------*/
 if(typeof Object.create!=="function"){
 Object.create=function(o){
 function F(){
