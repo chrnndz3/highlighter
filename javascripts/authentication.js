@@ -16,9 +16,9 @@ function login() {
 			users.once("value", function(snapshot) {
 				snapshot.forEach(function(user) {
 				console.log("Name: " + user.val()._name + ", UID: " + user.val()._uid);
-
 				});
 			});
+			console.log("end");
 			users.push({_name:username, _uid:id});
 
 
