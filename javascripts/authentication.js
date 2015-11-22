@@ -17,6 +17,7 @@ function login() {
 			users.orderByChild("_name").on("value", function(snapshot) {
 			  snapshot.forEach(function(data) {
 			    console.log("Name: " + data.val()._name + ", UID: " + data.val()._uid);
+			    return true;
 			    return (username === data.val()._name) && (id === data.val()._uid);
 			  });
 			});
