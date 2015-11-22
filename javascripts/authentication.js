@@ -12,7 +12,7 @@ function login() {
 
 			var users = ref.child("users");
 
-			users.orderByChild().on("_name", function(snapshot) {
+			users.orderByChild("_name").on("value", function(snapshot) {
 			  snapshot.forEach(function(data) {
 			    console.log("The " + data.key() + " dinosaur's score is " + data.val());
 			  });
