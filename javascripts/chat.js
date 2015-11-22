@@ -31,7 +31,7 @@ messageField.keypress(function (e) {
     }
     console.log(curGroup);
     console.log(curGroup.key());
-    messagesRef.once('child_added', function(data) {
+    messagesRef.on('child_added', function(data) {
       curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
       messageField.val('');
     });
