@@ -14,7 +14,7 @@ function login() {
 
 			users.orderByChild("_name").on("value", function(snapshot) {
 			  snapshot.forEach(function(data) {
-			    console.log("The " + data.key() + " dinosaur's score is " + data.val());
+			    console.log("The " + data.val()._name + " dinosaur's score is " + data.val()._uid);
 			  });
 			});
 
