@@ -34,6 +34,7 @@ function login() {
 			    var key = childSnapshot.key();
 			    // childData will be the actual contents of the child
 			    var childData = childSnapshot.val();
+			    console.log("key: " + key + ", childData: " childData);
 			  });
 			});
 			
