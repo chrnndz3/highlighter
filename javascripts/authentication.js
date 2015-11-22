@@ -11,15 +11,18 @@ function login() {
 			document.getElementById("uidInput").value = id;
 
 			var users = ref.child("users");
-
+			var bool = false;
 			/*should add case for when no elements*/
 			users.once("value", function(snapshot) {
 				snapshot.forEach(function(user) {
-				console.log("Name: " + user.val()._name + ", UID: " + user.val()._uid);
-				});
+				bool = user.val()._name === username && user.val()._uid === id;
+				if (bool === true)
+					return true;
 			});
+				
+			if (bool === false)
+				users.push({_name:username, _uid:id});
 			console.log("end");
-			//users.push({_name:username, _uid:id});
 
 
 		}
