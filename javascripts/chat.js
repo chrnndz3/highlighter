@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // CREATE A REFERENCE TO FIREBASE
 var messagesRef = new Firebase('https://highlighter.firebaseio.com/groups');
 
@@ -36,7 +34,7 @@ messageField.keypress(function (e) {
 });
 
 // Add a callback that is triggered for each chat message.
-messagesRef.limitToLast(10).on('child_added', function (snapshot) {
+messagesRef.child(curGroup.key()).limitToLast(10).on('child_added', function (snapshot) {
   //GET DATA
   var data = snapshot.val();
   console.log(data);
@@ -55,4 +53,3 @@ messagesRef.limitToLast(10).on('child_added', function (snapshot) {
   //SCROLL TO BOTTOM OF MESSAGE LIST
   messageList[0].scrollTop = messageList[0].scrollHeight;
 });
->>>>>>> refs/remotes/origin/gh-pages
