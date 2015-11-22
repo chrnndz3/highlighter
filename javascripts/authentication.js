@@ -16,11 +16,12 @@ function login() {
 			users.once("value", function(snapshot) {
 				snapshot.forEach(function(user) {
 				bool = user.val()._name === username && user.val()._uid === id;
+				console.log(bool)
 				if (bool === true)
 					return true;
 				});
 			});
-			
+
 			if (bool === false)
 				users.push({_name:username, _uid:id});
 			console.log("end");
