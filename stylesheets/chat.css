@@ -12,10 +12,8 @@ html, body
 
 .l-demo-container {
   width: auto;
-  height: 100%;
-  margin: 40px auto 0px auto; }
-
-
+  /*margin: 40px auto 0px auto; }*/
+}
 .l-popout {
   margin: 0;
   padding: 0;
@@ -109,6 +107,22 @@ html, body
     .example-chat footer input {
       border: 1px solid #ced3db;
       height: 40px; }
+
+#footer
+{
+    clear: both;
+    border: 1px groove #aaaaaa;
+    background: blue;
+    color: White;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
 
 #colorholder {
   width: 480px;
