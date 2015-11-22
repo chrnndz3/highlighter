@@ -23,8 +23,8 @@ messageField.keypress(function (e) {
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
     var groupRef = messagesRef.push({group:group});
-    groupRef.key().push({id:id, name:username, text:message});
-    //messageField.val('');
+    messagesRef.child(groupRef.key()).push({id:id, name:username, text:message});
+    messageField.val('');
   }
 });
 
