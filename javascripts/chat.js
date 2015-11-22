@@ -25,16 +25,11 @@ messageField.keypress(function (e) {
     var topic = topicField.val();
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    if (curGroup == "" || curGroup != group) {
-      console.log(group); //asdasds
-      curGroup = messagesRef.push({_group:group});
-    }
-    console.log(curGroup);
-    console.log(curGroup.key());
-    //messagesRef.once('child_added', function(data) {
-      curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
-      messageField.val('');
-    //});
+    if (curGroup == "" || curGroup != group) {       
+      console.log(group);           
+      curGroup = messagesRef.push({group:group});
+    }         
+    messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
   }
 });
 
