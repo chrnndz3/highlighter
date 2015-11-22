@@ -9,6 +9,8 @@ function login() {
 			var id = authData.uid;
 			document.getElementById("nameInput").innerHTML = username;
 			document.getElementById("uidInput").innerHTML = id;
+			console.log(username);
+			console.log(document.getElementById("nameInput").innerHTML);
 
 			var users = ref.child("users");
 			//if not exist
