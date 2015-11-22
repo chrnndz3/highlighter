@@ -14,13 +14,13 @@ function login() {
 			var bool = false;
 
 			var count = 0;
-			ref.on("child_added", function(snap) {
+			users.on("child_added", function(snap) {
 				count++;
 				console.log("added", snap.key());
 			});
 			// length will always equal count, since snap.val() will include every child_added event
 			// triggered before this point
-			ref.once("value", function(snap) {
+			users.once("value", function(snap) {
 				console.log("initial data loaded!", Object.keys(snap.val()).length === count);
 			});
 
