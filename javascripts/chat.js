@@ -7,6 +7,9 @@ var idField = $('#idInput');
 var messageField = $('#messageInput');
 var messageList = $('#example-messages');
 
+var groupField = $('#groupInput');
+var topicField = $('#topicInput');
+
 // LISTEN FOR KEYPRESS EVENT
 messageField.keypress(function (e) {
   if (e.keyCode == 13) {
@@ -15,9 +18,13 @@ messageField.keypress(function (e) {
     var id = idField.val();
     var message = messageField.val();
 
+    var group = groupField.val();
+    var topic = topicField.val();
+
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    messagesRef.push({id:id, name:username, text:message});
-    messageField.val('');
+    var groupRef = messagesRef.push({group:group});
+    groupRef.key().push({id:id, name:username, text:message});
+    //messageField.val('');
   }
 });
 
