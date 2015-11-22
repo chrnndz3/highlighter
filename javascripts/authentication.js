@@ -10,11 +10,11 @@ function login() {
 			document.getElementById("nameInput").value= username;
 			document.getElementById("uidInput").value = id;
 			console.log(username);
-			console.log(document.getElementById("nameInput").innerHTML);
+			console.log(document.getElementById("nameInput").value);
 
 			var users = ref.child("users");
 			//if not exist
-			users.push({name:username, uid:id});
+			users.push({_name:username, _uid:id});
 
 
 		}
