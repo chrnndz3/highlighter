@@ -9,9 +9,27 @@ var messageList = $('#example-messages');
 
 var groupField = $('#groupInput');
 var topicField = $('#topicInput');
+var topicList = $('#topics');
+var subField;
 
 var curGroup = "";
 var curMessage = "";
+
+
+
+topicField.keypress(function (e) {
+  if (e.keyCode == 13) {
+
+    var topicElement = $("<ul id='subField' class ='close'>");
+    var listElement = $("<li></li>");
+    var nameElement = $("<h3></h3>");
+    nameElement.text(topicField.val());
+    topicElement.prepend(nameElement);
+    topicList.append(topicElement);
+    subField = $('#subField');
+
+  }
+});
 
 // LISTEN FOR KEYPRESS EVENT
 messageField.keypress(function (e) {
@@ -24,13 +42,9 @@ messageField.keypress(function (e) {
     var group = groupField.val();
     var topic = topicField.val();
 
-    //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    if (curGroup == "" || curGroup != group) {
-      console.log(group); //asdasds
-      curGroup = messagesRef.push({_group:group});
-    }
-    curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
-    messageField.val('');
+    messagesRef.push({id:id, name:username, text:message})
+
+
   }
 });
 
