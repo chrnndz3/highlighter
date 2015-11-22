@@ -9,11 +9,15 @@ function login() {
 			var id = authData.uid;
 			document.getElementById("nameInput").value= username;
 			document.getElementById("uidInput").value = id;
-			console.log(username);
-			console.log(document.getElementById("nameInput").value);
 
 			var users = ref.child("users");
-			//if not exist
+
+			users.orderByChild().on("_name", function(snapshot) {
+			  snapshot.forEach(function(data) {
+			    console.log("The " + data.key() + " dinosaur's score is " + data.val());
+			  });
+			});
+
 			users.push({_name:username, _uid:id});
 
 
