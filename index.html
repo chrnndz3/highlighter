@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Highlighter by chrnndz3</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <link rel="stylesheet" href="stylesheets/chat.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>   
+  </head>
+
+  <body>
+    <div id="navbar">
+      <ul>
+        <li><h1 class = "color">Highlighter</h1></li>
+        <li><button type="button" onClick="login()">Login</button></li>
+        <!-- TODO: SIGNUP FUNCTION <li class="auth">
+          <button type="button" onClick="signup()">Sign Up</button>
+        </li> -->
+      </ul>
+    </div><!-- end header -->
+
+  <!-- CHAT MARKUP -->
+  <div class="example-chat l-demo-container">
+    <input type='text' id='groupInput' placeholder='Name this group!' required>
+    <ul id='example-messages' class="example-chat-messages"></ul>
+    <footer id="footer">
+      <div class='hide'>
+        <input type='text' id='nameInput' required>
+        <input type='text' id='idInput' required>
+      </div>
+      <input type='text' id='topicInput'  placeholder='Type a topic...'>
+      <input type='text' id='messageInput'  placeholder='Type a message...' required>
+    </footer>
+  </div>
+    <script src="javascripts/authentication.js"></script> <!-- accounts -->
+    <script src="javascripts/chat.js"></script> <!-- functionality -->
+  </body>
+</html>
