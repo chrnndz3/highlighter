@@ -18,13 +18,12 @@ function login() {
 				bool = user.val()._name === username && user.val()._uid === id;
 				if (bool === true)
 					return true;
+				});
 			});
-				
+			
 			if (bool === false)
 				users.push({_name:username, _uid:id});
 			console.log("end");
-
-
 		}
 	}, {
 		remember: "sessionOnly",
