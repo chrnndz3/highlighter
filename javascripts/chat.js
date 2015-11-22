@@ -35,23 +35,17 @@ messageField.keypress(function (e) {
 });
 
 // Add a callback that is triggered for each chat message.
-<<<<<<< HEAD
-messagesRef.child(curGroup).limitToLast(10).on('child_added', function (snapshot) {
-=======
+
 messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
->>>>>>> refs/remotes/origin/master
+
   //GET DATA
   var data = snapshot.val();
   console.log(data);
   console.log(data.val());
-<<<<<<< HEAD
+
   var username = data.val().name || "anonymous";
   var message = data.val().text;
-=======
-  console.log(data.val().name);
-  var username = data.name || "anonymous";
-  var message = data.text;
->>>>>>> refs/remotes/origin/master
+
 
   //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
   var messageElement = $("<li>");
