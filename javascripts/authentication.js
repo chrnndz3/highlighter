@@ -35,7 +35,7 @@ function login() {
 			//   });
 			// });
 
-			users.set({_uid:{_name:username}});
+			users.set({authData.uid:{_name:username}});
 			
 		}
 	}, {
