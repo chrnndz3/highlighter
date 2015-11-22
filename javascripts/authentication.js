@@ -19,7 +19,7 @@ function login() {
 
 				});
 			});
-			//users.push({_name:username, _uid:id});
+			users.push({_name:username, _uid:id});
 
 
 		}
