@@ -13,16 +13,13 @@ function login() {
 			var users = ref.child("users");
 
 			/*should add case for when no elements*/
+			ref.once("value", function(snapshot) {
+				snapshot.forEach(function(user) {
+				console.log("Name: " + user.val()._name + ", UID: " + user.val()._uid);
 
-			users.orderByChild("_name").on("value", function(snapshot) {
-			  snapshot.forEach(function(data) {
-			    console.log("Name: " + data.val()._name + ", UID: " + data.val()._uid);
-			    return true;
-			    return (username === data.val()._name) && (id === data.val()._uid);
-			  });
+				});
 			});
-
-			users.push({_name:username, _uid:id});
+			//users.push({_name:username, _uid:id});
 
 
 		}
