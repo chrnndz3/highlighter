@@ -5,11 +5,10 @@ function login() {
 			console.log("Login Failed!", error);
 		} else {
 			console.log("Authenticated successfully with payload:", authData);
-			console.log("here");
 			var username = authData.facebook.displayName;
 			var id = authData.uid;
-			document.getElementById("nameInput").innerHTML = username;
-			document.getElementById("uidInput").innerHTML = id;
+			document.getElementById("nameInput").value= username;
+			document.getElementById("uidInput").value = id;
 			console.log(username);
 			console.log(document.getElementById("nameInput").innerHTML);
 
