@@ -29,13 +29,13 @@ messageField.keypress(function (e) {
       console.log(group);           
       curGroup = messagesRef.push({group:group});
     }         
-    messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
+    curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
   }
 });
 
 // Add a callback that is triggered for each chat message.
 
-messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
+messagesRef.child(curMessage.key()).limitToLast(10).on('child_added', function (snapshot) {
 
   //GET DATA
   var data = snapshot.val();
