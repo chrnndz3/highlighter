@@ -12,9 +12,12 @@ function login() {
 
 			var users = ref.child("users");
 
+			/*should add case for when no elements*/
+
 			users.orderByChild("_name").on("value", function(snapshot) {
-			  snapshot.forEach(function(data) {
-			    console.log("The " + data.val()._name + " dinosaur's score is " + data.val()._uid);
+			  snapshot.some(function(data) {
+			    console.log("Name: " + data.val()._name + ", UID: " + data.val()._uid);
+			    return username == data.val()._name && id == data.val().uid;
 			  });
 			});
 
