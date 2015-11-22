@@ -12,7 +12,7 @@ function login() {
 
 			var users = ref.child("users");
 			var bool = false;
-
+			/*
 			var count = 0;
 			users.on("child_added", function(snap) {
 				count++;
@@ -24,20 +24,16 @@ function login() {
 				console.log("initial data loaded!", Object.keys(snap.val()).length === count);
 			});
 
-			/*
-			users.once("value", function(snapshot) {
-				snapshot.forEach(function(user) {
-				bool = user.val()._name === username && user.val()._uid === id;
-				console.log(bool)
-				if (bool === true)
-					return true;
-				});
-			});
-			console.log(bool === false);
-			if (bool === false)
-				users.push({_name:username, _uid:id});
-			console.log("end");
 			*/
+
+			
+			users.once("value", function(snapshot) {
+				var len = snapshot.numChildren();
+				for (var i = 0; i < len; i++) {
+					console.log(users[i]);
+				}
+			});
+			
 		}
 	}, {
 		remember: "sessionOnly",
