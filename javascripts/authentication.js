@@ -21,7 +21,7 @@ function login() {
 					return true;
 				});
 			});
-
+			console.log(bool === false);
 			if (bool === false)
 				users.push({_name:username, _uid:id});
 			console.log("end");
