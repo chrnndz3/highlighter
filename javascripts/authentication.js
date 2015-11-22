@@ -5,6 +5,7 @@ function login() {
 			console.log("Login Failed!", error);
 		} else {
 			console.log("Authenticated successfully with payload:", authData);
+			console.log("here");
 			var username = authData.facebook.displayName;
 			var id = authData.uid;
 			document.getElementById("nameInput").innerHTML = username;
