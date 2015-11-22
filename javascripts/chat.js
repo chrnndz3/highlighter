@@ -38,7 +38,7 @@ messageField.keypress(function (e) {
 
 // Add a callback that is triggered for each chat message.
 
-messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
+messagesRef.child(curMessage.key()).limitToLast(10).on('child_added', function (snapshot) {
 
   //GET DATA
   var data = snapshot.val();
