@@ -26,7 +26,7 @@ messageField.keypress(function (e) {
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
     if (curGroup == "" || curGroup != group) {
       console.log(group);
-      curGroup = messagesRef.push({&group:group}); 
+      curGroup = messagesRef.push({_group:group}); 
     }
     messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
     messageField.val('');
