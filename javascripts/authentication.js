@@ -28,15 +28,14 @@ function login() {
 
 			users.push({_name:username, _uid:id});
 			users.once("value", function(snapshot) {
-			  // The callback function will get called twice, once for "fred" and once for "barney"
 			  snapshot.forEach(function(childSnapshot) {
-			    // key will be "fred" the first time and "barney" the second time
 			    var key = childSnapshot.key();
-			    // childData will be the actual contents of the child
 			    var childData = childSnapshot.val();
-			    console.log("key: " + key + ", childData: " + childData);
+			    console.log("Name: " + childData.val()._name + ", UID: " + childData.val()._uid);
 			  });
 			});
+
+			//users.set({_name:username, _uid:id});
 			
 		}
 	}, {
