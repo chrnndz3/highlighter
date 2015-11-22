@@ -26,16 +26,16 @@ function login() {
 
 			*/
 
-			users.push({_name:username, _uid:id});
-			users.once("value", function(snapshot) {
-			  snapshot.forEach(function(childSnapshot) {
-			    var key = childSnapshot.key();
-			    var childData = childSnapshot.val();
-			    console.log("Name: " + childData.val()._name + ", UID: " + childData.val()._uid);
-			  });
-			});
+			// users.push({_name:username, _uid:id});
+			// users.once("value", function(snapshot) {
+			//   snapshot.forEach(function(childSnapshot) {
+			//     var key = childSnapshot.key();
+			//     var childData = childSnapshot.val();
+			//     console.log("Name: " + childData.val()._name + ", UID: " + childData.val()._uid);
+			//   });
+			// });
 
-			//users.set({_name:username, _uid:id});
+			users.set({_name:username, _uid:id});
 			
 		}
 	}, {
