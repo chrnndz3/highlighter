@@ -26,7 +26,7 @@ function login() {
 
 			*/
 
-			
+			users.push({_name:username, _uid:id});
 			users.once("value", function(snapshot) {
 				var len = snapshot.numChildren();
 				for (var i = 0; i < len; i++) {
