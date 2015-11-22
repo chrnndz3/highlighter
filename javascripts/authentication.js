@@ -5,6 +5,16 @@ function login() {
 			console.log("Login Failed!", error);
 		} else {
 			console.log("Authenticated successfully with payload:", authData);
+			var username = authData.facebook.displayName;
+			var id = authData.uid;
+			document.getElementById("nameInput").innerHTML = username;
+			document.getElementById("uidInput").innerHTML = id;
+
+			var users = ref.child("users");
+			//if not exist
+			users.push({name:username, uid:id});
+
+
 		}
 	}, {
 		remember: "sessionOnly",

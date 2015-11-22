@@ -1,9 +1,10 @@
 // CREATE A REFERENCE TO FIREBASE
-var messagesRef = new Firebase('https://highlighter.firebaseio.com/');
+var messagesRef = new Firebase('https://highlighter.firebaseio.com/groups');
 
 // REGISTER DOM ELEMENTS
-var messageField = $('#messageInput');
 var nameField = $('#nameInput');
+var uidField = $('#uidInput');
+var messageField = $('#messageInput');
 var messageList = $('#example-messages');
 
 // LISTEN FOR KEYPRESS EVENT
@@ -11,10 +12,11 @@ messageField.keypress(function (e) {
   if (e.keyCode == 13) {
     //FIELD VALUES
     var username = nameField.val();
+    var id = uidField.val();
     var message = messageField.val();
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    messagesRef.push({name:username, text:message});
+    messagesRef.push({name:username, uid:id, x_text:message});
     messageField.val('');
   }
 });
