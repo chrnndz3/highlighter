@@ -42,20 +42,32 @@ messageField.keypress(function (e) {
     var group = groupField.val();
     var topic = topicField.val();
 
+<<<<<<< HEAD
     messagesRef.push({id:id, name:username, text:message})
 
+=======
+    //SAVE DATA TO FIREBASE AND EMPTY FIELD
+    if (curGroup == "" || curGroup != group) {       
+      console.log(group);           
+      curGroup = messagesRef.push({group:group});
+    }         
+    curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
+>>>>>>> refs/remotes/origin/gh-pages
   }
 });
 
 // Add a callback that is triggered for each chat message.
-messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
+
+messagesRef.child(curMessage.key()).limitToLast(10).on('child_added', function (snapshot) {
+
   //GET DATA
   var data = snapshot.val();
   console.log(data);
   console.log(data.val());
-  console.log(data.val().name);
-  var username = data.name || "anonymous";
-  var message = data.text;
+
+  var username = data.val().name || "anonymous";
+  var message = data.val().text;
+
 
   //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
   var messageElement = $("<li>");
