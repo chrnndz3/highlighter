@@ -29,7 +29,7 @@ messageField.keypress(function (e) {
       console.log(group); //asdasds
       curGroup = messagesRef.push({_group:group});
     }
-    curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
+    curMessage = messagesRef.child(curGroup).push({id:id, name:username, text:message});
     messageField.val('');
   }
 });
