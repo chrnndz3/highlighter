@@ -12,7 +12,10 @@ function login() {
 
 			var users = ref.child("users");
 			var bool = false;
-			/*should add case for when no elements*/
+
+			users.numChildren();
+
+			/*
 			users.once("value", function(snapshot) {
 				snapshot.forEach(function(user) {
 				bool = user.val()._name === username && user.val()._uid === id;
@@ -25,6 +28,7 @@ function login() {
 			if (bool === false)
 				users.push({_name:username, _uid:id});
 			console.log("end");
+			*/
 		}
 	}, {
 		remember: "sessionOnly",
