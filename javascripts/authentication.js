@@ -15,7 +15,7 @@ function login() {
 			/*should add case for when no elements*/
 
 			users.orderByChild("_name").on("value", function(snapshot) {
-			  snapshot.some(function(data) {
+			  snapshot.forEach(function(data) {
 			    console.log("Name: " + data.val()._name + ", UID: " + data.val()._uid);
 			    return username == data.val()._name && id == data.val().uid;
 			  });
