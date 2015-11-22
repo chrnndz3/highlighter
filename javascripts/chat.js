@@ -10,6 +10,8 @@ var messageList = $('#example-messages');
 var groupField = $('#groupInput');
 var topicField = $('#topicInput');
 
+var curGroup = "";
+
 // LISTEN FOR KEYPRESS EVENT
 messageField.keypress(function (e) {
   if (e.keyCode == 13) {
@@ -22,8 +24,10 @@ messageField.keypress(function (e) {
     var topic = topicField.val();
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    var groupRef = messagesRef.push({group:group});
-    messagesRef.child(groupRef.key()).push({id:id, name:username, text:message});
+    if (curGroup == "") {
+      curGroup = messagesRef.push({group:group}); 
+    }
+    messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
     messageField.val('');
   }
 });
