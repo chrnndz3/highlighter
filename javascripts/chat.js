@@ -38,8 +38,8 @@ messagesRef.child(curGroup).limitToLast(10).on('child_added', function (snapshot
   //GET DATA
   var data = snapshot.val();
   console.log(data.val());
-  var username = data.name || "anonymous";
-  var message = data.text;
+  var username = data.val().name || "anonymous";
+  var message = data.val().text;
 
   //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
   var messageElement = $("<li>");
