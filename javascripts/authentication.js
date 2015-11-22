@@ -13,7 +13,7 @@ function login() {
 			var users = ref.child("users");
 
 			/*should add case for when no elements*/
-			ref.once("value", function(snapshot) {
+			users.once("value", function(snapshot) {
 				snapshot.forEach(function(user) {
 				console.log("Name: " + user.val()._name + ", UID: " + user.val()._uid);
 
