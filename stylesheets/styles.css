@@ -13,14 +13,27 @@ h1 {
   color: red;
 }
 
-#middle {
+#navbar {
   min-width: 800px;
   text-align: center;
+
 }
 
-.auth {
-  
+#navbar ul { 
+  margin: 0; 
+  padding: 5px; 
+  list-style-type: none; 
+  text-align: center; 
+} 
+ 
+#navbar ul li {  
+  display: inline;
+} 
+
+#navbar ul li h1 {
+  display: inline;
 }
+
 /*---------------------------------------------------------------------------*/
 @font-face {
   font-family: 'OpenSansLight';
@@ -349,7 +362,8 @@ dd {
 menu,
 ol,
 ul {
-  padding: 0 0 0 40px;
+  list-style-type: none; 
+  padding: 0 0 0 0px;
 }
 
 /*
