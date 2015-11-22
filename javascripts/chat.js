@@ -16,7 +16,7 @@ messageField.keypress(function (e) {
     var message = messageField.val();
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    messagesRef.push({name:username, uid:id, text:message});
+    messagesRef.push({_name:username, _uid:id, text:message});
     messageField.val('');
   }
 });
@@ -25,7 +25,7 @@ messageField.keypress(function (e) {
 messagesRef.limitToLast(10).on('child_added', function (snapshot) {
   //GET DATA
   var data = snapshot.val();
-  var username = data.name || "anonymous";
+  var username = data._name || "anonymous";
   var message = data.text;
 
   //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
