@@ -5,16 +5,16 @@ function login() {
 	      xfbml      : true,
 	      version    : 'v2.5'
 	    });
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+			connectedonsole.log('Logged in.');
+			}
+			else {
+				FB.login();
+			}
+		});
 	  };
 
-	  FB.getLoginStatus(function(response) {
-	  if (response.status === 'connected') {
-	    console.log('Logged in.');
-	  }
-	  else {
-	    FB.login();
-	  }
-	});
 
 	  (function(d, s, id){
 	     var js, fjs = d.getElementsByTagName(s)[0];
