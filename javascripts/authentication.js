@@ -30,7 +30,7 @@ function login() {
 			users.once("value", function(snapshot) {
 				var len = snapshot.numChildren();
 				for (var i = 0; i < len; i++) {
-					console.log(snapshot[i]);
+					console.log(snapshot[i].val());
 				}
 			});
 			
