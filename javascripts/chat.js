@@ -29,7 +29,6 @@ messageField.keypress(function (e) {
       curGroup = messagesRef.push({+group:group}); 
     }
     messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
-    messagesRef.child(curGroup.key()).
     messageField.val('');
   }
 });
