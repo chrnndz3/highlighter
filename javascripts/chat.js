@@ -34,33 +34,32 @@ messageField.keypress(function (e) {
     messagesRef.once('child_added', function(data) {
       curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
       messageField.val('');
-      
-      // Add a callback that is triggered for each chat message.
-
-      messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
-
-        //GET DATA
-        var data = snapshot.val();
-        console.log(data);
-        console.log(data.val());
-
-        var username = data.val().name || "anonymous";
-        var message = data.val().text;
-
-
-        //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-        var messageElement = $("<li>");
-        var nameElement = $("<strong class='example-chat-username'></strong>")
-        nameElement.text(username);
-        messageElement.text(message).prepend(nameElement);
-
-        //ADD MESSAGE
-        messageList.append(messageElement)
-
-        //SCROLL TO BOTTOM OF MESSAGE LIST
-        messageList[0].scrollTop = messageList[0].scrollHeight;
-      });
-
     });
   }
+});
+
+// Add a callback that is triggered for each chat message.
+
+messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
+
+  //GET DATA
+  var data = snapshot.val();
+  console.log(data);
+  console.log(data.val());
+
+  var username = data.val().name || "anonymous";
+  var message = data.val().text;
+
+
+  //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
+  var messageElement = $("<li>");
+  var nameElement = $("<strong class='example-chat-username'></strong>")
+  nameElement.text(username);
+  messageElement.text(message).prepend(nameElement);
+
+  //ADD MESSAGE
+  messageList.append(messageElement)
+
+  //SCROLL TO BOTTOM OF MESSAGE LIST
+  messageList[0].scrollTop = messageList[0].scrollHeight;
 });
