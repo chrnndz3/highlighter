@@ -11,6 +11,7 @@ var groupField = $('#groupInput');
 var topicField = $('#topicInput');
 
 var curGroup = "";
+var curMessage = "";
 
 // LISTEN FOR KEYPRESS EVENT
 messageField.keypress(function (e) {
@@ -28,16 +29,18 @@ messageField.keypress(function (e) {
       console.log(group); //asdasds
       curGroup = messagesRef.push({_group:group});
     }
-    messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
+    curMessage = messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
     messageField.val('');
   }
 });
 
 // Add a callback that is triggered for each chat message.
-messagesRef.child(curGroup.key()).limitToLast(10).on('child_added', function (snapshot) {
+messagesRef.child(curMessage).limitToLast(10).on('child_added', function (snapshot) {
   //GET DATA
   var data = snapshot.val();
+  console.log(data);
   console.log(data.val());
+  console.log(data.val().name);
   var username = data.name || "anonymous";
   var message = data.text;
 
