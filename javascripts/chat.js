@@ -44,7 +44,6 @@ messageField.keypress(function (e) {
 
     messagesRef.push({id:id, name:username, text:message})
 
-
   }
 });
 
