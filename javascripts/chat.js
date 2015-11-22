@@ -24,10 +24,12 @@ messageField.keypress(function (e) {
     var topic = topicField.val();
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    if (curGroup == "") {
+    if (curGroup == "" || curGroup != group) {
+      console.log(group);
       curGroup = messagesRef.push({group:group}); 
     }
     messagesRef.child(curGroup.key()).push({id:id, name:username, text:message});
+    messagesRef.child(curGroup.key()).
     messageField.val('');
   }
 });
