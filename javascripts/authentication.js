@@ -8,24 +8,14 @@ function login() {
 			var username = authData.facebook.displayName;
 			var id = authData.uid;
 			document.getElementById("nameInput").value= username;
-			document.getElementById("uidInput").value = id;
+			document.getElementById("idInput").value = id;
 
 			var users = ref.child("users");
 			var bool = false;
-			/*
-			var count = 0;
-			users.on("child_added", function(snap) {
-				count++;
-				console.log("added", snap.key());
-			});
-			// length will always equal count, since snap.val() will include every child_added event
-			// triggered before this point
-			users.once("value", function(snap) {
-				console.log("initial data loaded!", Object.keys(snap.val()).length === count);
-			});
-
-			*/
-
+			
+			users.child(authData.uid).set({_name:username});
+			
+			//debug
 			// users.push({_name:username, _uid:id});
 			// users.once("value", function(snapshot) {
 			//   snapshot.forEach(function(childSnapshot) {
@@ -34,8 +24,6 @@ function login() {
 			//     console.log("Name: " + childData.val()._name + ", UID: " + childData.val()._uid);
 			//   });
 			// });
-
-			users.child(authData.uid).set({_name:username});
 			
 		}
 	}, {

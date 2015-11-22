@@ -3,7 +3,7 @@ var messagesRef = new Firebase('https://highlighter.firebaseio.com/groups');
 
 // REGISTER DOM ELEMENTS
 var nameField = $('#nameInput');
-var uidField = $('#uidInput');
+var idField = $('#idInput');
 var messageField = $('#messageInput');
 var messageList = $('#example-messages');
 
@@ -12,11 +12,11 @@ messageField.keypress(function (e) {
   if (e.keyCode == 13) {
     //FIELD VALUES
     var username = nameField.val();
-    var id = uidField.val();
+    var id = idField.val();
     var message = messageField.val();
 
     //SAVE DATA TO FIREBASE AND EMPTY FIELD
-    messagesRef.push({_name:username, _uid:id, text:message});
+    messagesRef.push({id:id, name:username, text:message});
     messageField.val('');
   }
 });
@@ -25,7 +25,7 @@ messageField.keypress(function (e) {
 messagesRef.limitToLast(10).on('child_added', function (snapshot) {
   //GET DATA
   var data = snapshot.val();
-  var username = data._name || "anonymous";
+  var username = data.name || "anonymous";
   var message = data.text;
 
   //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
