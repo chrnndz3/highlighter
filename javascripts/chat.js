@@ -25,6 +25,7 @@ messageField.keypress(function (e) {
 messagesRef.limitToLast(10).on('child_added', function (snapshot) {
   //GET DATA
   var data = snapshot.val();
+  console.log(data);
   var username = data.name || "anonymous";
   var message = data.text;
 
