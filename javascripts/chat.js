@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 // CREATE A REFERENCE TO FIREBASE
 var messagesRef = new Firebase('https://highlighter.firebaseio.com/groups');
 
@@ -53,3 +55,4 @@ messagesRef.limitToLast(10).on('child_added', function (snapshot) {
   //SCROLL TO BOTTOM OF MESSAGE LIST
   messageList[0].scrollTop = messageList[0].scrollHeight;
 });
+>>>>>>> refs/remotes/origin/gh-pages
